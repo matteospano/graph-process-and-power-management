@@ -1,29 +1,55 @@
-<div class="wrapper">
-	<div id="app"></div>
+<head>
+<meta charset="UTF-8">
+<title>Graph Factory</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="header"></div>
+<canvas id="canvas"></canvas>
+  
+<div id="tutorial-overlay" class="tutorial-overlay-class">
+  <div class="tutorial-content">
+    <button class="close-btn" onclick="closeTutorial()">×</button>
+    <h2>Benvenuto in Industrial Mind 1.3</h2>
+    <hr>
+    
+    <div class="tutorial-step">
+      <h3>1. Nodi e Risorse</h3>
+      <p>Ogni nodo è una miniera, fabbrica, ecc in grado di produrre e consumare risorse al secondo. Alcuni input hanno <b>Ranges</b> (richiedono una quantità precisa) o <b>Optional</b> (forniscono bonus se alimentati).</p>
+    </div>
+
+    <div class="tutorial-step">
+      <h3>2. Collegamenti (Link)</h3>
+      <p>Clicca sulla risorsa in uscita di un nodo e trascina verso un altro nodo per collegarli. Clicca sul numero di uno <b>Split</b> per bilanciare i flussi tra più uscite dello stesso tipo.</p>
+    </div>
+    
+         <div class="tutorial-step">
+      <h3>4. Nodi e unlock</h3>
+ <p>Sblocca nuovi nodi dal menù in sidebar raggiungendo le produzioni mostrate sui loro overlay.</p>
+               </div>
+
+    <div class="tutorial-step">
+      <h3>4. Temperatura e Stati</h3>
+      <p>Se un nodo produce più di 3 calore/s, andrà in <b>HOT</b> (efficienza 50%). Se non riceve energia nel proprio range di lavoro diverterà <b>SHUT DOWN</b>. Gestisci bene il calore!</p>
+    </div>
+
+    <div class="tutorial-step">
+      <h3>5. Blackbox (Late Game)</h3>
+      <p>Se un gruppo di nodi è autosufficiente (non riceve inputs e non punta a nodi esterni), usa il tool <b>Blackbox</b> in Logistics. Trascina un'area per raggrupparli: libererai spazio e otterrai un unico nodo con la produzione netta congelata.</p>
+    </div>
+
+    <button class="start-btn" onclick="closeTutorial()">INIZIA A COSTRUIRE</button>
+  </div>
 </div>
 
-<div class='rulebook'>
-<div class='newRule'> REGOLE DEL GIOCO: "Mini-Mind Sim"</div>
- <div>Ogni giocatore (4 in totale) riceve 2 carte distinte da 1 a 100.</div>
- <div>Le carte vengono distribuite casualmente e ogni giocatore gioca a turno.</div>
- <p/>
- <div class='newRule'>Obiettivo: giocare le carte in ordine crescente sul tavolo,</div>
- <div> evitando di giocare una carta inferiore o uguale all'ultima giocata.</div>
-  <div class='newRule'>Al proprio turno, un giocatore ha due opzioni:</div>
-   <div>  - "Gioca" la carta più bassa che ha in mano.</div>
-    <div> - "Aspetta" (salta il turno) per lasciare la possibilità agli altri giocatori di giocare le loro carte</div>
-<div>e aumentare le probabilità che la sua carta sia la più bassa rimasta.</div>
- <p/>
-  <div class='newRule'>Il gioco simula la cooperazione silenziosa del gioco "The Mind":</div>
-    <div> - I bot decidono se giocare o aspettare in base a una stima probabilistica.</div>
-    <div> - Il giocatore umano può vedere la probabilità stimata e scegliere se rischiare o attendere.</div>
-<div class='newRule'>Se una carta non viene giocata in tempo ed è quindi minore della carta sul tavolo, viene scartata.</div>
-<div>Quindi giocando si corre il rischio di far scartare carte ai giocatori,</div>
-	<div>mentre aspettando si corre il rischio di dover scartare carte a causa degli altri giocatori.</div>
- <p/>
- <div class='newRule'> Il gioco termina quando tutti i giocatori non hanno più carte.</div>
- <div> A fine partita vengono mostrati:</div>
-  <div>  - Carte giocate correttamente</div>
-  <div> - Carte scartate</div>
-  <div> - Numero totale di turni trascorsi</div>
+<div id="ui">
+  <div id="unlocked"></div>
+  <div id="ui-main">
+    <div id="tabs"></div>
+    <div id="content"></div>
+  </div>
 </div>
+  
+</body>
