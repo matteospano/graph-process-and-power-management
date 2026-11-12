@@ -29,9 +29,7 @@ The prototype is designed to make these dynamics legible without imposing heavy 
 
 ## Live demo
 
-Open the interactive simulation here:
-
-https://codepen.io/matteospano/details/emBJPEg
+[Open the interactive simulation](https://codepen.io/matteospano/details/emBJPEg)
 
 ## Project structure
 
