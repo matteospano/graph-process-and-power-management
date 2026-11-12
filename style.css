@@ -1,0 +1,90 @@
+*,
+*:before,
+*:after {
+  font-family: inherit;
+  box-sizing: inherit;
+  color: inherit;
+}
+
+:root {
+  --unit: 1.5rem;
+}
+
+body {
+  color: #53565a;
+  font-family: "Fira Sans";
+  box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  background: linear-gradient(to bottom right, #d0dfe7, #7BA7BC);
+}
+
+.wrapper {
+  width: 100%;
+}
+
+#app {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+h1{
+  margin-bottom: 0;
+}
+
+h2{
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+p {
+  text-align: center;
+  margin: 0 5px;
+}
+
+.flex{
+  display:flex;
+}
+.center{
+  margin-inline: auto;
+}
+.hidden{
+  color: #909090;
+}
+
+.playersContainer{
+    display: flex;
+    justifyContent: space-around;
+    marginTop: 20px;
+    width: 700px;
+}
+
+.bot{
+  width: 130px;
+}
+.prob{
+  display:flex;
+  justify-content: space-evenly;
+}
+.item {
+  width: 75px;
+  padding: 0 4px;
+  background-color: lightgreen;
+}
+.ground{
+  margin-top: 67px;
+}
+
+.rulebook{
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.newRule{
+  margin-top: 15px;
+}
