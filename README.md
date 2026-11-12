@@ -1,59 +1,46 @@
-# Mini-Mind Sim
+# Graph Factory
 
-Mini-Mind Sim is a compact browser-based simulation designed to study decision-making under uncertainty in a multi-agent, turn-based environment. The project models a small system of interacting agents that must balance immediate utility against the expected value of waiting for a more favorable state. It is intentionally minimal, readable, and extensible, making it suitable for experimentation with probabilistic reasoning, strategic timing, and agent behavior.
+Graph Factory is a browser-based resource-flow simulation for designing and balancing an interconnected industrial production system. Place production and processing units on a canvas, connect their resource streams, and tune the flow between consumers to build a supply chain that can sustain increasingly advanced technologies.
 
-The simulation is framed as a controlled model for evaluating how simple decision heuristics perform under varying conditions of risk, information asymmetry, and opportunity cost. Rather than emphasizing gameplay, the system is organized as a research-style prototype for exploring the dynamics of threshold-based choice under stochastic constraints.
-
-## Overview
-
-The model examines a four-agent scenario in which each participant is assigned two values from a fixed numerical range. At each decision point, an agent evaluates whether to commit a currently usable value or defer in the hope of obtaining a more advantageous outcome later. The simulation compares each agent's actual decision against a probabilistic estimate of expected payoff.
-
-The interface supports direct inspection of the decision process:
-
-- each agent is treated as an autonomous decision-maker
-- action selection is guided by a simple probabilistic heuristic
-- the user can compare personal choice against the model's risk estimate
-- outcomes are summarized at the end of the run to reveal the distribution of accepted and deferred actions
-
-## Research focus
-
-This project explores several themes relevant to mathematical and behavioral modeling:
-
-- decision-making under uncertainty
-- expected value estimation in bounded-rational systems
-- sequential choice under stochastic constraints
-- comparison between heuristic and optimized action policies
-- emergent outcomes from repeated local decisions
-
-The prototype is designed to make these dynamics legible without imposing heavy implementation overhead or complex infrastructure. It is intended as a lightweight experimental platform for testing strategy, risk sensitivity, and parameter variation.
+The simulation models production and consumption rates, dependency bottlenecks, operating ranges, optional input boosts, and heat-related efficiency losses. Progress comes from meeting production thresholds to unlock new facilities and extending the network toward a telemetry system capable of generating data.
 
 ## Live demo
 
-[Open the interactive simulation](https://codepen.io/matteospano/details/emBJPEg)
+[Open Graph Factory on CodePen](https://codepen.io/matteospano/details/emBJPEg)
 
-## Project structure
+## How the simulation works
 
-- `main.HTML` – application entry point and simulation interface
-- `functions.TS` – state model, card generation logic, simulation loop, and agent policy logic
-- `style.css` – visual styling and layout
+- **Build a production network:** Place resource sources and processing units from the categorized sidebar.
+- **Connect resources:** Drag from a node's output to a compatible input on another node. Resource links carry a portion of the source's production rate.
+- **Balance flow:** When an output feeds multiple destinations, adjust its split to control how production is distributed.
+- **Manage operating conditions:** Some units require inputs within a precise range; optional inputs can increase production, while excess heat reduces efficiency.
+- **Unlock advanced technologies:** Reach the displayed net production requirements to reveal additional production units.
+- **Compact established systems:** Use the Blackbox tool to group a self-contained area of nodes and replace it with a representation of its current net outputs.
+- **Complete the objective:** Develop the supply chain until a telemetry station produces data.
 
-## Running locally
+## Controls
 
-Because this is a lightweight static prototype, it can be served with any simple local web server:
+- **Add a node:** Select a category tab, then choose an available unit from the sidebar.
+- **Move a node:** Drag its title area on the canvas.
+- **Create a connection:** Drag from an output on one node to a compatible input on another.
+- **Adjust a split:** When an output has multiple links, click the split controls shown on that output to shift flow between destinations.
+- **Remove a connection:** Double-click near the link.
+- **Create a Blackbox:** Choose Blackbox in the Logistics category, then drag a selection around a self-contained group of nodes. Connections crossing the selection boundary must be removed first.
+
+## Project files
+
+- `main.HTML` – simulation interface, canvas, sidebar, and tutorial overlay
+- `functions.js` – production model, resource-flow calculations, interaction handling, progression, and rendering
+- `style.css` – layout and visual styling
+
+## Run locally
+
+Serve the project directory with a local web server, for example:
 
 ```bash
-cd /workspaces/mind-number-guess
 python3 -m http.server 8000
 ```
 
-Then open:
+Then open [http://localhost:8000/main.HTML](http://localhost:8000/main.HTML).
 
-```text
-http://localhost:8000/main.HTML
-```
-
-## Notes
-
-This project is best understood as an experimental simulation environment rather than a conventional end-user application. It prioritizes clarity, rapid iteration, and conceptual transparency over production polish. The design is intentionally compact, making it easy to extend with alternative heuristic models, additional constraints, or richer analytical outputs.
-
-The implementation is structured to support further investigation into probabilistic decision dynamics, strategic timing, and multi-agent choice behavior in a compact computational setting.
+**Asset wiring note:** The current HTML references `styles.css`, but the stylesheet in the repository is named `style.css`; it also needs to load `functions.js` for the simulation logic to run. Update the stylesheet reference to `style.css` and include `functions.js` in the HTML before expecting the checked-in files to work together locally.
